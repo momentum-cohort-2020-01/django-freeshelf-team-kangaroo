@@ -1,0 +1,13 @@
+{% extends 'index.html' %} {% block heading %}
+<h2>Add Book</h2>
+{% endblock %} {% block content %}
+<div class="void"></div>
+<div class="form-container">
+  <form method="POST" class="note-form">
+    <h2 class="form-title">Add a Book.</h2>
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Save</button>
+  </form>
+</div>
+<div class="void"></div>
+{% endblock %}
