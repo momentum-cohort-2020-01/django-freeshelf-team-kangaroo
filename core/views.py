@@ -8,6 +8,7 @@ def books_list(request):
     books = Book.objects.all()
     return render(request, 'core/books_list.html', {'books': books})
 
+
 def books_edit(request, pk):
     books = get_object_or_404(Book, pk=pk)
     if request == "POST":
@@ -20,6 +21,22 @@ def books_edit(request, pk):
     else:
         form = BookForm(instance = book)
         return render(request, 'core/books_edit.html', {"form": form})
+
+def books_new(request):
+    if request.method == "POST":
+        form = BookForm(request.POST)
+        if form.is_valid():
+            book = form.save(commit=False)
+            book.author = request.user
+            book.save()
+            return redirect('books-list')
+    else:
+        form = BookForm()
+    return render(request, 'core/books_edit.html', {'form': form})
+
+   
+   
+
 
 
 
