@@ -20,4 +20,5 @@ from core import views
 urlpatterns = [
     path('', views.books_list, name='books-list'),
     path('admin/', admin.site.urls),
+    path('book/<int:pk>/edit/', views.books_edit, name = 'books-edit'),
 ]
