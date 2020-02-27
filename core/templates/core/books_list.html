@@ -1,0 +1,11 @@
+{% extends 'index.html' %} {% block heading %}
+<h2>Welcome to FreeShelf</h2>
+{% endblock %} {% block content %} {% for book in books %}
+    <div class="book">
+        <h4 class="book-title" id="{{book.pk}}">{{book.title}}</h4>
+        <p class="book-auth">{{book.author}}</p>
+        <a class="book-url" href="{{book.url}}">{{book.url}}</a>
+        <p class="book-desc">{{book.description}}</p>
+      </a>
+    </div>
+{% endfor %} {% endblock %}
