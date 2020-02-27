@@ -8,6 +8,18 @@ def books_list(request):
     books = Book.objects.all()
     return render(request, 'core/books_list.html', {'books': books})
 
+def books_new(request):
+    if request.method == "POST":
+        form = BookForm(request.POST)
+        if form.is_valid():
+            book = form.save(commit=False)
+            book.author = request.user
+            book.save()
+            return redirect('books-list')
+    else:
+        form = BookForm()
+    return render(request, 'core/books_edit.html', {'form': form})
+
 
 
 
