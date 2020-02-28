@@ -51,6 +51,7 @@ main {
 .book-title {
   font-size: 20px;
   font-weight: 400;
+  text-transform: capitalize;
 }
 
 .book a {
@@ -75,6 +76,10 @@ main {
   margin-right: 0.7rem;
 }
 
+a.book-url {
+  margin-bottom: 1rem;
+}
+
 p.tag {
   display: inline;
   background: #ff5a5f;
@@ -82,6 +87,50 @@ p.tag {
   padding: 5px 7px;
   border-radius: 0.25rem;
   font-size: 12px;
+}
+
+form.book-form {
+  max-width: 441px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+h2.form-title {
+  font-size: 25px;
+  font-weight: 400;
+  color: #ff5a5f;
+}
+
+.book-form input,
+textarea {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  font-size: 16px;
+  padding: 5px;
+  border: solid 1px #e5e5e5;
+  font-weight: 400;
+  border-radius: 0.25rem;
+  color: #484848;
+}
+
+textarea {
+  height: 5rem;
+}
+
+button.save.btn.btn-default {
+  padding: 0.5rem;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  background: #ff5a5f;
+  width: 100%;
+  color: #fff;
+  border: solid 1px #ff5a5f;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 
 /* Media Queries */
