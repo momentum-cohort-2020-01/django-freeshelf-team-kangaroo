@@ -12,3 +12,7 @@ class Book(models.Model):
 
     def __str__(self):
         return f"Book title {self.title} Author {self.author}  Url {self.url} Description {self.description}"
+
+class Tag(models.Model):
+    name = models.CharField(max_length = 40)
+    slug = slugify(name)
