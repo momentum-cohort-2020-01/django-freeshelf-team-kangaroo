@@ -17,16 +17,15 @@ def books_details(request, pk):
 
 def books_edit(request, pk):
     book = get_object_or_404(Book, pk=pk)
-    if request == "POST":
+    if request.method == "POST":
         form = BookForm(request.POST, instance=book)
         if form.is_valid():
             book = form.save(commit=False)
-            book.author = request.user
             book.save()
-            return redirect('books-details', pk=note.pk)
+            return redirect('books-details', book.pk)
     else:
-        form = BookForm(instance = book)
-        return render(request, 'core/books_edit.html', {"form": form})
+        form = BookForm(instance=book)
+    return render(request, 'core/books_edit.html', {'form': form})
 
 def books_new(request):
     if request.method == "POST":
