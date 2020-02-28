@@ -1,12 +1,12 @@
 {% extends 'index.html' %} {% block heading %}
 <h2>Welcome to FreeShelf</h2>
 {% endblock %} {% block content %} {% for book in books %}
-    <div class="book">
-      <a href="{% url 'books-details' book.pk %}" class="book-link">
-        <h4 class="book-title" id="{{book.pk}}">{{book.title}}</h4>
-        <p class="book-auth">{{book.author}}</p>
-        <a class="book-url" href="{{book.url}}">{{book.url}}</a>
-        <p class="book-desc">{{book.description}}</p>
-      </a>
-    </div>
+<div class="book">
+  <a href="{% url 'books-details' book.pk %}" class="book-link">
+    <h4 class="book-title" id="{{book.pk}}">{{book.title}}</h4>
+    <p class="book-auth">{{book.author}}</p>
+    <p class="book-desc">{{book.description}}</p>
+    <a class="book-url" href="{{book.url}}">{{book.url}}</a>
+  </a>
+</div>
 {% endfor %} {% endblock %}
