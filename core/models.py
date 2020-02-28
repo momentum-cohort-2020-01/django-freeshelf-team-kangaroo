@@ -21,3 +21,6 @@ class Tag(models.Model):
     name = models.CharField(max_length = 40)
     slug = slugify(name)
 
+    def __str__(self):
+        return f"{self.name}"
+
