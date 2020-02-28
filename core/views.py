@@ -43,10 +43,9 @@ def books_delete(request, pk):
     book.delete()
     return redirect('books-list')
 
-def tagged(request, slug):
-    tag = get_object_or_404(Tag, slug=slug)
+def tagged(request, tag): 
     # Filter books by tag name  
-    books = Book.objects.filter(tags=tag)
+    books = Book.objects.filter(tag__name=tag)
     return render(request, 'core/books_list.html', {'tag': tag, 'books': books})
 
    
