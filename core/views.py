@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest
 from .models import Book
 from .forms import BookForm
+from taggit.models import Tag
+
 
 # Create your views here.
 def books_list(request):
@@ -42,6 +44,12 @@ def books_delete(request, pk):
     book = get_object_or_404(Book, pk=pk)
     book.delete()
     return redirect('books-list')
+
+def tagged(request, slug):
+    tag = get_object_or_404(Tag, slug=slug)
+    # Filter books by tag name  
+    books = Book.objects.filter(tags=tag)
+    return render(request, 'core/books_list.html', {'tag': tag, 'books': books})
 
    
    
