@@ -60,6 +60,21 @@ main {
   width: 100%;
 }
 
+.top-book {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-section a {
+  color: #ff5a5f;
+  display: inline;
+}
+
+.btn-section a:not(:last-child) {
+  margin-right: 0.7rem;
+}
+
 /* Media Queries */
 @media only screen and (max-width: 800px) {
   .books-container {
