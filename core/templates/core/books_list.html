@@ -7,7 +7,7 @@
     <p class="book-auth">{{book.author}}</p>
     <p class="book-desc">{{book.description}}</p>
     <a class="book-url" href="{{book.url}}">{{book.url}}</a>
-    <p class="tag">{{book.tag}}</p>
+    <a href="{% url 'books-category' book.tag %}" class="tag">{{book.tag}}</a>
   </a>
 </div>
 {% endfor %} {% endblock %}
