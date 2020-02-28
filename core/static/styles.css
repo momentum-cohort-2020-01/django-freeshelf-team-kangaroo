@@ -75,6 +75,15 @@ main {
   margin-right: 0.7rem;
 }
 
+p.tag {
+  display: inline;
+  background: #ff5a5f;
+  color: #fff;
+  padding: 5px 7px;
+  border-radius: 0.25rem;
+  font-size: 12px;
+}
+
 /* Media Queries */
 @media only screen and (max-width: 800px) {
   .books-container {
