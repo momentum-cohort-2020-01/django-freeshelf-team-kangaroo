@@ -80,7 +80,7 @@ a.book-url {
   margin-bottom: 1rem;
 }
 
-p.tag {
+a.tag {
   display: inline;
   background: #ff5a5f;
   color: #fff;
