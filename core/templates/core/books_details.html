@@ -2,8 +2,10 @@
 <div class="book">
   <div class="top-book">
     <h4 class="book-title">{{book.title}}</h4>
-    <a class="btn btn-edit" href="{% url 'books-edit' pk %}">Edit</a>
-    <a class="btn btn-delete" href="{% url 'books-delete' pk %}">Delete</a>
+    <div class="btn-section">
+      <a class="btn btn-edit" href="{% url 'books-edit' pk %}">Edit</a>
+      <a class="btn btn-delete" href="{% url 'books-delete' pk %}">Delete</a>
+    </div>
   </div>
   <p class="author">{{book.author}}</p>
   <p class="url">{{book.url}}</p>
