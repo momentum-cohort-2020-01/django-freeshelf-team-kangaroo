@@ -8,9 +8,13 @@ def books_list(request):
     books = Book.objects.all()
     return render(request, 'core/books_list.html', {'books': books})
 
+def books_details(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    return render(request, "core/books_details.html", {'book': book, 'pk':pk})
+
 
 def books_edit(request, pk):
-    books = get_object_or_404(Book, pk=pk)
+    book = get_object_or_404(Book, pk=pk)
     if request == "POST":
         form = BookForm(request.POST, instance=book)
         if form.is_valid():
