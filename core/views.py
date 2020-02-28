@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest
 from .models import Book
 from .forms import BookForm
-from taggit.models import Tag
 
 
 # Create your views here.
