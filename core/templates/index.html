@@ -14,12 +14,14 @@
   </head>
   <body>
     <header>
+      <div class="logo">
+        <h2>Logo / Here</h2>
+      </div>
       <div class="menu">
         <a class="menu-link" href="{% url 'books-list' %}">Home</a>
         <a class="menu-link" href="{% url 'books-new' %}">Add Book</a>
       </div>
     </header>
-    <h2>Hello World</h2>
     <main>
       <div class="books-container">
         {% block content %} {% endblock %}

@@ -38,6 +38,11 @@ def books_new(request):
         form = BookForm()
     return render(request, 'core/books_edit.html', {'form': form})
 
+def books_delete(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    book.delete()
+    return redirect('books-list')
+
    
    
 

@@ -1,3 +1,4 @@
+/* Reset Css */
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +8,32 @@
 
 body {
   letter-spacing: 1px;
+  color: #484848;
+}
+
+/* Main Page Css */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.logo h2 {
+  font-weight: 400;
+}
+
+.menu a {
+  color: #ff5a5f;
+  text-decoration: none;
+}
+
+.menu a:not(:last-child) {
+  margin-right: 1rem;
+}
+
+main {
+  margin: 1rem;
 }
 
 .books-container {
@@ -16,4 +43,31 @@ body {
 
 .book {
   margin: 1rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.book-title {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.book a {
+  color: #484848;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 800px) {
+  .books-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .books-container {
+    grid-template-columns: 1fr;
+  }
 }
