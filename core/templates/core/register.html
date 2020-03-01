@@ -1,0 +1,10 @@
+{% extends 'index.html' %} {% block heading %}
+<h2>Create Account</h2>
+{% endblock %} {% block content %}
+<div class="void"></div>
+<form method="POST" action="" class="book-form">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="save btn btn-default">Create Account</button>
+</form>
+<div class="void"></div>
+{% endblock %}

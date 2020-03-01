@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest
 from .models import Book
 from .forms import BookForm
+from .forms import RegisterForm
 from taggit.models import Tag
+
 
 
 # Create your views here.
@@ -48,6 +50,18 @@ def tagged(request, tag):
     # Filter books by tag name  
     books = Book.objects.filter(tag__name=tag)
     return render(request, 'core/books_list.html', {'tag': tag, 'books': books})
+
+def register(response):
+    if response.method == 'POST':
+        form =  RegisterForm(response.POST)
+        if form.is_valid():
+           form.save()
+           return redirect('books-list')
+    else:
+        form =  RegisterForm()
+
+    return render(response, 'core/register.html', {'form': form})
+
 
    
    
