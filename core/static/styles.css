@@ -11,6 +11,10 @@ body {
   color: #484848;
 }
 
+ul {
+  list-style: none;
+}
+
 /* Main Page Css */
 header {
   display: flex;
@@ -91,7 +95,6 @@ a.tag {
 
 form.book-form {
   max-width: 441px;
-  margin: 0 auto;
   padding: 2rem;
   border-radius: 0.25rem;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
@@ -134,7 +137,7 @@ button.save.btn.btn-default {
 }
 
 /* Media Queries */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1024px) {
   .books-container {
     grid-template-columns: 1fr 1fr;
   }
