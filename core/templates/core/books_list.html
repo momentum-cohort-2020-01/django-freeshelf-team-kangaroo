@@ -1,4 +1,4 @@
-{% extends 'index.html' %} {% block heading %}
+{% extends 'base.html' %} {% block heading %}
 <h2>Welcome to FreeShelf</h2>
 {% endblock %} {% block content %} {% for book in books %}
 <div class="book">
@@ -7,7 +7,9 @@
     <p class="book-auth">{{book.author}}</p>
     <p class="book-desc">{{book.description}}</p>
     <a class="book-url" href="{{book.url}}">{{book.url}}</a>
+  {% if book.tag %}
     <a href="{% url 'books-by-tag' book.tag.slug %}" class="tag">{{book.tag}}</a>
+  {% endif %}
   </a>
 </div>
 {% endfor %} {% endblock %}

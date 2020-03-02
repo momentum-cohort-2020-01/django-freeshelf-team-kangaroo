@@ -26,4 +26,5 @@ urlpatterns = [
     path('book/<int:pk>/edit/', views.books_edit, name = 'books-edit'),
     path('book/<int:pk>/delete/', views.books_delete, name = 'books-delete'),
     path('books/<slug:slug>/', views.tagged, name= 'books-by-tag'),
+    path('accounts/', include('registration.backends.default.urls'))
 ]
