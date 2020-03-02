@@ -2,13 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest
 from .models import Book, Tag
 from .forms import BookForm
-<<<<<<< HEAD
-from .forms import RegisterForm
-from taggit.models import Tag
-=======
 from django.utils.text import slugify
 
->>>>>>> master
 
 
 
@@ -56,26 +51,3 @@ def tagged(request, slug):
     tag = Tag.objects.get(slug=slug)
     books = Book.objects.filter(tag=tag)
     return render(request, 'core/books_list.html', {'tag': tag, 'books': books})
-<<<<<<< HEAD
-
-def register(response):
-    if response.method == 'POST':
-        form =  RegisterForm(response.POST)
-        if form.is_valid():
-           form.save()
-           return redirect('books-list')
-    else:
-        form =  RegisterForm()
-
-    return render(response, 'core/register.html', {'form': form})
-
-
-   
-   
-
-
-
-
-
-=======
->>>>>>> master
