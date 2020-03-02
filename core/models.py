@@ -1,8 +1,11 @@
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.db import models
 from django.utils.text import slugify
 
 
 # Create your models here.
+@login_required
 class Book(models.Model):
     title = models.CharField(max_length=50)
     author = models.CharField(max_length=100)
@@ -17,8 +20,6 @@ class Book(models.Model):
 
         return f"Book title {self.title} Author {self.author}  Url {self.url} Description {self.description} tag{self.tag}"
 
-    def get_absolute_url(self):
-        return reverse('books_details', kwargs={'slug': self.slug})
 
 class Tag(models.Model):
     name = models.CharField(max_length = 40)
@@ -32,4 +33,5 @@ class Tag(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         return super().save(*args, **kwargs)
+
 
