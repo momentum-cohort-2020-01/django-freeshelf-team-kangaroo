@@ -1,11 +1,10 @@
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
 from django.db import models
 from django.utils.text import slugify
 
 
 # Create your models here.
-@login_required
+
 class Book(models.Model):
     title = models.CharField(max_length=50)
     author = models.CharField(max_length=100)

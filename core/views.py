@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest
 from .models import Book, Tag
 from .forms import BookForm
@@ -7,6 +8,7 @@ from django.utils.text import slugify
 
 
 # Create your views here.
+@login_required
 def books_list(request):
     books = Book.objects.all()
     return render(request, 'core/books_list.html', {'books': books})
