@@ -1,9 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest
-from .models import Book
+from .models import Book, Tag
 from .forms import BookForm
+<<<<<<< HEAD
 from .forms import RegisterForm
 from taggit.models import Tag
+=======
+from django.utils.text import slugify
+
+>>>>>>> master
 
 
 
@@ -46,10 +51,12 @@ def books_delete(request, pk):
     book.delete()
     return redirect('books-list')
 
-def tagged(request, tag): 
+def tagged(request, slug): 
     # Filter books by tag name  
-    books = Book.objects.filter(tag__name=tag)
+    tag = Tag.objects.get(slug=slug)
+    books = Book.objects.filter(tag=tag)
     return render(request, 'core/books_list.html', {'tag': tag, 'books': books})
+<<<<<<< HEAD
 
 def register(response):
     if response.method == 'POST':
@@ -70,3 +77,5 @@ def register(response):
 
 
 
+=======
+>>>>>>> master
