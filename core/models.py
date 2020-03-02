@@ -11,16 +11,20 @@ class Book(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     tag = models.ForeignKey("Tag", on_delete=models.CASCADE, null=True, blank=True)
+   
 
     def __str__(self):
 
         return f"Book title {self.title} Author {self.author}  Url {self.url} Description {self.description} tag{self.tag}"
 
+    def get_absolute_url(self):
+        return reverse('books_details', kwargs={'slug': self.slug})
 
 class Tag(models.Model):
     name = models.CharField(max_length = 40)
-    slug = slugify(name)
-
+ #trying to add slug
+    slug = models.SlugField(null=False, unique=True, default=slugify(name))
+    
     def __str__(self):
         return f"{self.name}"
     
