@@ -7,9 +7,12 @@
     <p class="book-auth">{{book.author}}</p>
     <p class="book-desc">{{book.description}}</p>
     <a class="book-url" href="{{book.url}}">{{book.url}}</a>
-  {% if book.tag %}
-    <a href="{% url 'books-by-tag' book.tag.slug %}" class="tag">{{book.tag}}</a>
-  {% endif %}
+    {% if book.tag %}
+    <a href="{% url 'books-by-tag' book.tag.slug %}" class="tag"
+      >{{book.tag}}</a
+    >
+    {% endif %} {% if book in likes %}
+    <i class="fas fa-heart"></i> {% endif %}
   </a>
 </div>
 {% endfor %} {% endblock %}

@@ -8,9 +8,20 @@
     </div>
   </div>
   <p class="author">{{book.author}}</p>
-  <p class="url">{{book.url}}</p>
+  <p class="book-url">{{book.url}}</p>
   <p class="description">{{book.description}}</p>
+  {% if book.tag %}
   <a href="{% url 'books-by-tag' book.tag %}" class="tag">{{book.tag}}</a>
+  {% endif %} {% if user.username in liked_by %}
+  <a class="btn btn-like" href="{% url 'books-dislike' pk %}"
+    ><i class="far fa-thumbs-down"></i
+  ></a>
+  {% else %}
+  <a class="btn btn-like" href="{% url 'books-like' pk %}"
+    ><i class="far fa-thumbs-up"></i
+  ></a>
+  <p>{{book.count}}</p>
+  {% endif %}
 </div>
 
 {% endblock %}

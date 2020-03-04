@@ -12,6 +12,8 @@ class Book(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     tag = models.ForeignKey("Tag", on_delete=models.CASCADE, null=True, blank=True)
+    like = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+
    
 
     def __str__(self):
@@ -34,3 +36,10 @@ class Tag(models.Model):
             self.slug = slugify(self.name)
         return super().save(*args, **kwargs)
 
+
+class Like(models.Model):
+    liker = models.ForeignKey(User, related_name="likes", on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, related_name="likes", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Liker: {self.liker}, Book: {self.book}"

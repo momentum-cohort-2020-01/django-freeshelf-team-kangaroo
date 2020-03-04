@@ -7,19 +7,34 @@
       href="https://fonts.googleapis.com/css?family=Oswald:300,400,700&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/fa594a9551.js"
+      crossorigin="anonymous"
+    ></script>
     {% load static %}
+    <script src="{% static 'main.js' %}" defer></script>
     <link rel="stylesheet" href="{% static 'styles.css' %}" />
-    <script src="static/main.js" defer></script>
     <title>FreeShelf</title>
   </head>
   <body>
     <header>
       <div class="logo">
-        <h2>Logo / Here</h2>
+        <h2>FreeShelf</h2>
       </div>
       <div class="menu">
         <a class="menu-link" href="{% url 'books-list' %}">Home</a>
         <a class="menu-link" href="{% url 'books-new' %}">Add Book</a>
+        <a class="menu-link" href="/accounts/logout">Logout</a>
+      </div>
+      <div id="lines">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+      <div class="mobile-menu">
+        <a class="menu-link" href="{% url 'books-list' %}">Home</a>
+        <a class="menu-link" href="{% url 'books-new' %}">Add Book</a>
+        <a class="menu-link" href="/accounts/logout">Logout</a>
       </div>
     </header>
     <main>
